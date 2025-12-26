@@ -15,8 +15,9 @@ async def main():
     with open("goal.md", "r") as f:
         goal = f.read().strip()
 
+    models = ["mistralai/devstral-2512:free", "qwen/qwen3-coder:free","nex-agi/deepseek-v3.1-nex-n1:free"]
     tools = AdbTools(serial="emulator-5554")
-    llm = load_llm("OpenRouter", "mistralai/devstral-2512:free")
+    llm = load_llm("OpenRouter", models[1])
 
     # Set maximum execution steps
     # config.agent.max_steps = 999999
