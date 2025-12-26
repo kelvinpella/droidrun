@@ -1,6 +1,11 @@
 import asyncio
 from droidrun import AgentConfig, DroidAgent, AdbTools, DroidrunConfig, load_llm
 
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 
 async def main():
     """
@@ -9,7 +14,7 @@ async def main():
     # Read goal from file
     with open("goal.md", "r") as f:
         goal = f.read().strip()
-    
+
     tools = AdbTools(serial="emulator-5554")
     llm = load_llm("OpenRouter", "mistralai/devstral-2512:free")
 
